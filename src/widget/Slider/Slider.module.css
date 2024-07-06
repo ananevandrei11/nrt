@@ -1,0 +1,26 @@
+.list {
+  /*
+ When a user scrolls the content of a content-class item within a container, scrolling stops at the container boundaries and the external document will not scroll horizontally.
+  */
+  overscroll-behavior-inline: contain;
+  /*
+  The container with the container class scrolls along a horizontal axis, and its contents will "stick" to the nearest point of adhesion.
+  Items with item class occupy the entire width of the container and have a style of sticking to the top (using the scroll-snap-align: start property).
+  */
+  scroll-snap-type: x mandatory;
+  /*
+  For example, the .scroll-container is a container that is 300px wide and 200px high, and also includes internal horizontal scrolling (overflow-x: auto;).
+  scroll-padding-inline: 20px; - sets the inner region (padding) to 20px along the scroll axis (in this case, horizontally). This means that the content inside the.scroll-container will be 20px away from its internal border, preventing content from sticking to the edges of the container when scrolling.
+  */
+  scroll-padding-inline: 0;
+
+  scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  scroll-snap-align: start;
+}
