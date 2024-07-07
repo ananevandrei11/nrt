@@ -33,7 +33,12 @@ export default function Slider() {
   const { scrollRef } = useDraggableSlider();
 
   return (
-    <div className="container mx-auto px-4 overflow-hidden flex flex-col justify-center items-center gap-4">
+    <div
+      className={clsx(
+        'relative container mx-auto px-4 overflow-hidden flex flex-col justify-center items-center gap-4',
+        cn.container
+      )}
+    >
       <ul
         ref={scrollRef}
         style={containerStyle}
@@ -60,6 +65,7 @@ export default function Slider() {
           </li>
         ))}
       </ul>
+      <div className={clsx('h-1 absolute top-40 inset-x-4 bg-lime-600 origin-[0_50%]', cn.progress)} />
       <nav className="flex gap-2">
         {slides.map((slide) => (
           <a
