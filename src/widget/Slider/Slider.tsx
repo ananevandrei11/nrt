@@ -23,9 +23,12 @@ const slides = [
 const countItems = slides.length;
 
 interface CSSVariables {
-  '--count-items': number;
+  '--count-items'?: number;
+  '--i'?: number;
 }
-const containerStyle: CSSProperties & CSSVariables = {
+type CSStyles = CSSProperties & CSSVariables;
+
+const containerStyle: CSStyles = {
   '--count-items': countItems,
 };
 
@@ -34,6 +37,7 @@ export default function Slider() {
 
   return (
     <div
+      style={containerStyle}
       className={clsx(
         'relative container mx-auto px-4 overflow-hidden flex flex-col justify-center items-center gap-4',
         cn.container
@@ -41,7 +45,6 @@ export default function Slider() {
     >
       <ul
         ref={scrollRef}
-        style={containerStyle}
         className={clsx(
           'w-full grid grid-flow-col overflow-x-scroll scroll-smooth',
           'grid-cols-[repeat(var(--count-items),100%)] sm:grid-cols-[repeat(var(--count-items),33.33%)] lg:grid-cols-[repeat(var(--count-items),25%)]',
@@ -66,13 +69,14 @@ export default function Slider() {
         ))}
       </ul>
       <div className={clsx('h-1 absolute top-40 inset-x-4 bg-lime-600 origin-[0_50%]', cn.progress)} />
-      <nav className="flex gap-2">
-        {slides.map((slide) => (
+      <nav className={clsx('flex gap-2', cn.markers)}>
+        {slides.map((slide, index) => (
           <a
             key={`link-${slide.id}`}
             href={`#${slide.id}`}
             title={slide.title}
-            className="inline-block w-3 h-3 bg-current rounded-full"
+            style={{ '--i': index } as CSStyles}
+            className={clsx('inline-block w-3 h-3 bg-current rounded-full', cn.link)}
           />
         ))}
       </nav>

@@ -43,3 +43,18 @@
   animation: grow-progress linear;
   animation-timeline: --container;
 }
+
+@keyframes colorize-dot {
+  0%,
+  100% {
+    background: #ff00fa;
+  }
+}
+
+.link {
+  --length: 100% / var(--count-items);
+  background: #6300ff;
+  animation: colorize-dot linear;
+  animation-timeline: --container;
+  animation-range: calc((var(--i)) * var(--length)) calc((var(--i) + 1) * var(--length) + 1px);
+}
