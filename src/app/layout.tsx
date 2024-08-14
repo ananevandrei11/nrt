@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
@@ -14,7 +15,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header>
+          <nav className="flex gap-2 flex-wrap">
+            <Link
+              href="/slider-css"
+              className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline pr-2 border-r-2 border-solid border-lime-600"
+            >
+              Slider CSS
+            </Link>
+            <Link
+              href="/youtube-iframe"
+              className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline pr-2 border-r-2 border-solid border-lime-600"
+            >
+              Youtube Iframe
+            </Link>
+            <Link
+              href="/youtube-plugin"
+              className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline"
+            >
+              Youtube Plugin
+            </Link>
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
