@@ -32,9 +32,12 @@ export default function RootLayout({
             </Link>
             <Link
               href="/youtube-plugin"
-              className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline"
+              className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline pr-2 border-r-2 border-solid border-lime-600"
             >
               Youtube Plugin
+            </Link>
+            <Link href="/test" className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline">
+              Test
             </Link>
           </nav>
         </header>

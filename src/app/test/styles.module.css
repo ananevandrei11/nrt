@@ -1,0 +1,51 @@
+.root {
+  display: block;
+  columns: 4 200px;
+  column-gap: 0;
+}
+
+@property --spin {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.imageContainer {
+  position: relative;
+  padding: 4px;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: conic-gradient(
+      from var(--spin),
+      transparent 0deg,
+      rgba(255, 196, 0, 0.705) 15deg,
+      transparent 30deg,
+      transparent 180deg,
+      rgba(255, 196, 0, 0.705) 195deg,
+      transparent 210deg,
+      transparent 360deg
+    );
+    animation: 5s spin infinite linear;
+    z-index: -1;
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes spin {
+  from {
+    --spin: 0deg;
+  }
+
+  to {
+    --spin: 360deg;
+  }
+}
