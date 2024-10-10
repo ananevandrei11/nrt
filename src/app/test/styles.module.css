@@ -1,3 +1,40 @@
+.section {
+  background-color: rgba(17, 16, 16, 0.918);
+}
+
+@keyframes title {
+  0%, 10%, 100% {
+    width: 0;
+  }
+
+  70%, 90% {
+    width: 100%;
+  }
+}
+
+.title {
+  position: relative;
+  margin: 16px auto;
+  width: fit-content;
+  color: lawngreen;
+  text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+
+  &::after {
+    content: attr(data-title);
+    position: absolute;
+    inset: 0;
+    width: 0;
+    height: 100%;
+    color: white;
+    animation: title 5s linear infinite;
+    text-wrap: nowrap;
+    overflow: hidden;
+    border-right: 2px solid currentColor;
+  }
+}
+
 .root {
   display: block;
   columns: 4 200px;
@@ -14,6 +51,12 @@
   position: relative;
   padding: 4px;
   overflow: hidden;
+  animation-name: viewImage;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 10%;
+  view-timeline-inset: 100%;
 
   &::after {
     content: '';
@@ -22,10 +65,10 @@
     background-image: conic-gradient(
       from var(--spin),
       transparent 0deg,
-      rgba(255, 196, 0, 0.705) 15deg,
+      rgba(250, 97, 8, 0.959) 15deg,
       transparent 30deg,
       transparent 180deg,
-      rgba(255, 196, 0, 0.705) 195deg,
+      rgba(250, 97, 8, 0.959) 195deg,
       transparent 210deg,
       transparent 360deg
     );
@@ -47,5 +90,17 @@
 
   to {
     --spin: 360deg;
+  }
+}
+
+
+@keyframes viewImage {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

@@ -6,8 +6,10 @@ import { uniqueId } from 'lodash';
 export default function Test() {
   return (
     <main>
-      <section>
-        <h2>Images Columns</h2>
+      <section className={cn.section}>
+        <h1 className={cn.title} data-title="Images Columns">
+          Images Columns
+        </h1>
         <div className={cn.root}>
           {Array.from({ length: 15 }).map(() => {
             const random = Math.floor(Math.random() * 10);

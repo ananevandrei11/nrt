@@ -80,7 +80,7 @@ export default function Slider() {
           />
         ))}
       </nav>
-      <p className="text-sm">
+      <p className="text-sm text-lime-400">
         There are certain limitations when using the{' '}
         <code className="bg-blue-950 p-0.5 font-semibold text-cyan-100">scroll-snap-type</code> and{' '}
         <code className="bg-blue-950 p-0.5 font-semibold text-cyan-100">scroll-behavior</code> properties together,

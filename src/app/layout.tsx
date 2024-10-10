@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import clsx from 'clsx';
 import Link from 'next/link';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -15,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={clsx(inter.className, 'bg-gray-950')}>
         <header>
           <nav className="flex gap-2 flex-wrap">
             <Link
