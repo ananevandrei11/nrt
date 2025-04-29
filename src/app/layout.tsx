@@ -19,6 +19,9 @@ export default function RootLayout({
       <body className={clsx(inter.className, 'bg-gray-950')}>
         <header>
           <nav className="flex gap-2 flex-wrap">
+            <Link href="/gallery-scroll" className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline">
+              Gallery Scroll
+            </Link>
             <Link
               href="/slider-css"
               className="text-lg md:text-2xl text-lime-600 hover:text-lime-700 hover:underline pr-2 border-r-2 border-solid border-lime-600"
